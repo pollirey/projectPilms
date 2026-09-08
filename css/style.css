@@ -40,6 +40,7 @@
     padding: 16px;
     border-radius: 8px;
     background-color: #626262;
+    transition: box-shadow 0.3s, transform 0.3s;
 
 }
 
@@ -78,4 +79,65 @@
 
 .film-origin {
     color: #b0b0b0;
+}
+
+.accordion {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    border: solid 1px #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+    transition: box-shadow 0.3s;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 16px 20px;
+    background: none;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: #252525;
+    transition: background-color 0.3s;
+}
+
+.accordion-header:hover {
+    background-color: #f9f9f9;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.accordion-item.active .accordion-content{
+    max-height: 500px;
+}
+
+.accordion-answer {
+    padding: 10px 30px;
+    color: #252525;
+}
+
+.arrow-bottom {
+    width: 10px;
+    height: 10px;
+    transform: rotate(90deg);
+}
+
+.accordion-item.active .arrow-bottom {
+    transform: rotate(270deg);
 }
