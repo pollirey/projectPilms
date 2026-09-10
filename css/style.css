@@ -21,7 +21,11 @@
 }
 
 .container-title {
-    color: #f9f9f9;
+  color: #b0b0b0;
+    font-weight: 100;
+  font-size: 52px;        /* крупно — тонкость видна */
+  letter-spacing: 0.04em; /* чуть разрядить — легче дышит */
+  line-height: 1.1;
 
 }
 
@@ -36,7 +40,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 260px;
+    width: 450px;
     padding: 16px;
     border-radius: 8px;
     background-color: #626262;
@@ -53,7 +57,10 @@
 }
 
 .film-img {
-    height: 150px;
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .film-info {
@@ -70,15 +77,15 @@
 }
 
 .film-description {
-    color: #b0b0b0;
+    color: #d7d3d3;
 }
 
 .film-duration {
-    color: #b0b0b0;
+    color: #f9f9f9;
 }
 
 .film-origin {
-    color: #b0b0b0;
+    color: #f79709;
 }
 
 .accordion {
@@ -94,6 +101,7 @@
     overflow: hidden;
     background-color: #ffffff;
     transition: box-shadow 0.3s;
+    
 }
 
 .accordion-item:hover {
@@ -121,15 +129,23 @@
 .accordion-content {
     max-height: 0;
     overflow: hidden;
+    background-color: #f79709;
+    color: #f9f9f9;
+    font-weight: 700;
+    border-radius: 8px;
 }
 
-.accordion-item.active .accordion-content{
+.accordion-item.active .accordion-content {
     max-height: 500px;
+    
+}
+
+.accordion-question {
+    font-weight: 700;
 }
 
 .accordion-answer {
     padding: 10px 30px;
-    color: #252525;
 }
 
 .arrow-bottom {
@@ -140,4 +156,9 @@
 
 .accordion-item.active .arrow-bottom {
     transform: rotate(270deg);
+    
+}
+
+.accordion-body {
+    margin: 2px;
 }
