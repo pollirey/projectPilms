@@ -21,11 +21,11 @@
 }
 
 .container-title {
-  color: #b0b0b0;
+    color: #b0b0b0;
     font-weight: 100;
-  font-size: 52px;        /* крупно — тонкость видна */
-  letter-spacing: 0.04em; /* чуть разрядить — легче дышит */
-  line-height: 1.1;
+    font-size: 52px;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
 
 }
 
@@ -101,7 +101,7 @@
     overflow: hidden;
     background-color: #ffffff;
     transition: box-shadow 0.3s;
-    
+
 }
 
 .accordion-item:hover {
@@ -137,7 +137,7 @@
 
 .accordion-item.active .accordion-content {
     max-height: 500px;
-    
+
 }
 
 .accordion-question {
@@ -156,7 +156,7 @@
 
 .accordion-item.active .arrow-bottom {
     transform: rotate(270deg);
-    
+
 }
 
 .accordion-body {
