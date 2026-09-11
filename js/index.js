@@ -52,6 +52,24 @@ if( searchInput) {
 
 renderFilms(films);
 
+function initAccordion() {
+    const accordionHeaders = document.querySelectorAll(".accordion-header");
+
+    accordionHeaders.forEach(header => { 
+        header.addEventListener("click", ()  => {
+            const accordionItem = header.parentElement;
+            const isActive = accordionItem.classList.contains('active');
+            document.querySelectorAll(".accordion-item.active").forEach(item => {
+                item.classList.remove("active");
+            }) 
+            if (!isActive) {
+                    accordionItem.classList.add("active");
+            }
+        })
+});
+}
+
+initAccordion();
 // {
 //     "id": 2003,
 //     "film_name": "Титаник",

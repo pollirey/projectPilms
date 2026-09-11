@@ -1,0 +1,133 @@
+
+
+.container {
+    background-color: #515151;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.film-info {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+.film-name {
+    font-size: 32px;
+    margin: 20px 0;
+}
+
+.seance-info {
+    font-size: 18px;
+    color: #f9f9f9;
+
+}
+
+.seance-time,.hall-name {
+    padding: 5px 15px;
+    background-color: #f9f9f9;
+    border-radius: 20px;
+    margin: 0 10px;
+    color: #252525;
+}
+
+.ticket-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.ticket-counter {
+    font-size: 18px;
+    color: #252525;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.book-btn {
+    background-color: #e1ab49;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    border: none;
+}
+
+.hall-container {
+    background-color: #ffffff;
+    padding: 20px;   
+}
+
+.screen {
+    text-align: center;
+    padding: 20px;
+    background-color: #333333;
+    color: #ffffff;
+    width: 80%;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+}
+
+.ticket-price {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 18px;
+    color: #252525;
+}
+
+.seats-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #3a3a3a;
+    margin: 20px 0;
+}
+
+.seats-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.seat-standart {
+    background-color: #338a2bb3;
+    border: 2px solid #173c13b3;
+}
+
+.seat-standart.selected {
+    background-color: #291dd1;
+    border-color: #0a0734;
+}
+
+.seat-vip {
+    background-color: #e1ab49;
+    border: 2px solid #da8e01;
+}
+
+.seat-vip.selected {
+    background-color: #291dd1;
+    border-color: #0a0734;
+}
+
+.seat-taken {
+    background-color: #515151;
+    border: 2px solid #757575;
+    cursor: not-allowed;
+}
+
+
