@@ -6,9 +6,12 @@ console.log(data);
 
 const filmsContainer = document.getElementById("filmsContainer");
 const searchInput = document.getElementById("searchInput");
-const films = await data.films;
+const allFilms = await data.films;
+const allHalls = await data.halls;
+const allSeances = await data.seances;
 
-function renderFilms(films) {
+
+function renderFilms(films, halls, seances) {
     filmsContainer.innerHTML = "";
     if (films.length === 0) {
         filmsContainer.innerHTML = `<p class="no-result">Фильм не найден</p> `;
@@ -17,6 +20,8 @@ function renderFilms(films) {
     films.forEach(film => {
         const filmCard = document.createElement("div");
         filmCard.classList.add("film-card");
+        const filmSeances = seances.filter(seance => seance.seance_filmid === film.id);
+        const hallsHTML = renderHalls(halls , filmSeances, film);
         filmCard.innerHTML = `
         <img class="film-img" src="${film.film_poster}" alt="${film.film_name}">
                 <div class="film-info">
@@ -25,6 +30,7 @@ function renderFilms(films) {
                     <p class="film-duration">Длительность фильма:${film.film_duration} минут</p>
                     <p class="film-origin">Страна происхождения:${film.film_origin}</p>
                 </div>
+                <div class="film-halls">${hallsHTML}</div>
         `
         filmsContainer.append(filmCard);
     });
@@ -43,14 +49,14 @@ function filterFilms(search) {
 function handleSearch(event) {
     const search = event.target.value;
     const filteredFilms = filterFilms(search);
-    renderFilms(filteredFilms);
+    renderFilms(filteredFilms, allHalls, allSeances);
 }
 
 if( searchInput) {
     searchInput.addEventListener("input" , handleSearch);
 }
 
-renderFilms(films);
+renderFilms(allFilms, allHalls, allSeances);
 
 function initAccordion() {
     const accordionHeaders = document.querySelectorAll(".accordion-header");
@@ -69,7 +75,70 @@ function initAccordion() {
 });
 }
 
+function renderHalls(halls, filmSeances, film) {
+    let hallsHTML = "";
+    halls.forEach(hall => {
+        const hallSeances =  filmSeances.filter(seance => seance.seance_hallid === hall.id);
+        if(hallSeances.length === 0) {
+            return;
+        }
+        hallsHTML += ` 
+        <div class="hall">
+        <p class="hall-name">${hall.hall_name}</p>
+        <div class="time-list">
+        ${hallSeances.map(seance => `
+            <button class="time-item"
+        data-seance-id="${seance.id}"
+        data-seance-time="${seance.seance_time}"
+        data-film-name="${film.film_name}"
+        data-hall-id="${hall.id}"
+        data-hall-name="${hall.hall_name}"
+        data-hall-price-standart="${hall.hall_price_standart}"
+        data-hall-price-vip="${hall.hall_price_vip}"
+        >
+        ${seance.seance_time}
+        </button>
+            `).join('') }
+        
+        </div>
+        </div>
+        `
+    })
+    return hallsHTML || '<p>Нет доступных залов</p>';
+}
+
+
 initAccordion();
+
+function initSeancesHandler() {
+    filmsContainer.addEventListener('click',(event) => {
+        const btn = event.target.closest(".time-item");
+        if (!btn) {
+            return;
+        } 
+        const seanceData = {
+            seanceId: btn.dataset.seanceId,
+            seanceTime: btn.dataset.seanceTime,
+            filmName: btn.dataset.filmName,
+            hallId: btn.dataset.hallId,
+            hallName: btn.dataset.hallName,
+            hallPriceStandart: btn.dataset.allPriceStandart,
+            hallPriceVip: btn.dataset.hallPriceVip
+         }
+
+         localStorage.setItem("seanceData" , JSON.stringify(seanceData));
+         location.href = "pages/clienthall.html";
+    })
+}
+
+initSeancesHandler();
+
+
+
+
+
+
+
 // {
 //     "id": 2003,
 //     "film_name": "Титаник",

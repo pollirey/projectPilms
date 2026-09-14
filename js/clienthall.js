@@ -10,3 +10,7 @@ const vipPrice = document.getElementById("vip-price");
 const standartCount = document.getElementById("standart-count");
 const totalPrice = document.getElementById("total-price");
 const bookBtn = document.getElementById("book-btn");
+
+const seanceData = JSON.parse(localStorage.getItem("seanceData"));
+console.log(seanceData);
+filmName.textContent = seanceData.filmName;
