@@ -122,7 +122,7 @@ function initSeancesHandler() {
             filmName: btn.dataset.filmName,
             hallId: btn.dataset.hallId,
             hallName: btn.dataset.hallName,
-            hallPriceStandart: btn.dataset.allPriceStandart,
+            hallPriceStandart: btn.dataset.hallPriceStandart,
             hallPriceVip: btn.dataset.hallPriceVip
          }
 
