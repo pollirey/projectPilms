@@ -64,6 +64,7 @@ function getTodayDate() {
             if (seatType === "standart" || seatType === "vip") {
                 seat.addEventListener("click" , () => {
                     seat.classList.toggle("selected");
+                    updateTicketSummary();
             })
             }
             rowEl.append(seat);
@@ -87,15 +88,64 @@ function getTodayDate() {
         }
     })
     
-    standartPrice.textContent = standartCountNumber;
-    vipPrice.textContent = vipCountNumber;
+    standartCount.textContent = standartCountNumber;
+    vipCount.textContent = vipCountNumber;
 
-    selectedSeats.forEach(seat => {
-        if (seat ) {}
+    const standartTotalPrice = seanceData.hallPriceStandart;
+    const vipTotalPrice = seanceData.hallPriceVip;
+
+    const total = (standartTotalPrice * standartCountNumber ) + (vipTotalPrice * vipCountNumber);
+    totalPrice.textContent = total;
+}
+
+bookBtn.addEventListener("click" , () => {
+    const selectedSeats = document.querySelectorAll(".seat.selected");
+    if (selectedSeats.length === 0) {
+        alert("Пожалуйста, выберите места для бронирования");
+        return;
+    } 
+    const selectedSeatInfo = [];
+    let standartCountNumber = 0;
+    let vipCountNumber = 0;
+
+    selectedSeats.forEach( seat => {
+        const row = seat.closest(".seats-row");
+        const rowIndex = Array.from(row.parentElement.children).indexOf(row);
+        const seatIndex = Array.from(row.children).indexOf(seat);
+        const seatType = seat.classList.contains("seat-vip") ? "vip" : "standart";
+        const seatNumber = seat.getAttribute("data-seat-number");
+        selectedSeatInfo.push({
+            row: rowIndex+1,
+            seat: seatIndex+1,
+            type: seatType,
+            number: seatNumber
+        }) 
+        if (seatType === "vip") {
+            vipCountNumber++;
+        } else {
+            standartCountNumber++;
+        }
     })
- }
+    const standartTotalPrice = seanceData.hallPriceStandart;
+    const vipTotalPrice = seanceData.hallPriceVip;
 
-
+    const total = (standartTotalPrice * standartCountNumber ) + (vipTotalPrice * vipCountNumber);
+    const bookingData = {
+        filmName: seanceData.filmName,
+        seanceTime: seanceData.seanceTime,
+        hallName: seanceData.hallName,
+        date: date,
+        selectedSeats: selectedSeatInfo,
+        standartCount: standartCountNumber,
+        vipCount: vipCountNumber,
+        standartPrice: standartTotalPrice,
+        vipPrice: vipTotalPrice,
+        totalCoast: total,
+        seanceId: seanceId
+    }
+    localStorage.setItem("bookingData", JSON.stringify(bookingData));
+    window.location.href = "../pages/booking.html";
+})
 
 // 2) Доделать функцию updateTicketSummary мы там большую часть 
 // сделали далее нужно будет нашим span в которых у нас хранятся 

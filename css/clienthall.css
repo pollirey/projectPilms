@@ -66,9 +66,9 @@
 }
 
 .hall-container {
-    background-color: #ffffff;
     padding: 20px;
     position: relative;
+    background-color: #3a3a3a;
 }
 
 .screen {
@@ -95,7 +95,6 @@
     align-items: center;
     gap: 15px;
     padding: 15px;
-    background-color: #3a3a3a;
     margin: 20px 0;
     height: 700px;
     position: relative;
@@ -179,6 +178,52 @@
 }
 
 .seat-taken {
+    background-color: #515151;
+    border: 2px solid #757575;
+    cursor: not-allowed;
+}
+
+.seats-type {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.seat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #f9f9f9;
+    font-size: 18px
+}
+
+.seat-type {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+}
+
+.seat-type.standart {
+    background-color: #338a2bb3;
+    border: 2px solid #173c13b3;
+}
+
+.seat-type.vip {
+    background-color: #e1ab49;
+    border: 2px solid #da8e01;
+}
+
+.seat-type.selected {
+    background-color: #291dd1;
+    border-color: #0a0734;
+}
+
+.seat-type.taken {
     background-color: #515151;
     border: 2px solid #757575;
     cursor: not-allowed;
