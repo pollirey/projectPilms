@@ -22,10 +22,11 @@
     text-align: center;
     background-color: #f79709;
     display: flex;
-    border-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     flex-direction: column;
     width: 100%;
-
+    padding: 20px;
 
 }
 
@@ -33,6 +34,7 @@
     color: #252525;
     font-size: 35px;
     font-weight: 700;
+    margin-bottom: 10px;
 }
 
 .booking-info {
@@ -55,7 +57,6 @@
 .seats-summary {
     display: flex;
     flex-direction: column;
-    height: 500px;
     padding: 30px;
 }
 
@@ -65,7 +66,8 @@
     color: #f79709;
     font-weight: 700;
     font-size: 30px;
-    margin-top: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .booking-list {
@@ -74,10 +76,9 @@
     padding: 20px;
     border-radius: 8px;
     width: 100%;
-    margin: 0 auto;
+    margin-bottom: 30px;
     gap: 50px;
     justify-content: center;
-    
 }
 
 .booking-type {
@@ -99,13 +100,15 @@
 
 .booking-payment {
     background-color: #5f5e5e;
+    padding: 20px;
 }
 
 .payment-title {
     color: #f79709;
     font-weight: 700;
     font-size: 30px;
-    margin-top: 50px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 } 
  
 .payment-form {
@@ -114,7 +117,7 @@
     font-size: 30px;
     justify-content: center;
     flex-direction: column;
-    padding: 30px;
+    gap: 15px;
 }
 
 .form-group {
@@ -124,9 +127,12 @@
 
 .card-group {
     display: flex;
-    justify-content: center;
-    gap: 50px;
+    gap: 20px;
     width: 100%;
+}
+
+.card-group .form-group {
+    flex: 1 1 0%;
 }
 
 .card-number {
@@ -134,7 +140,7 @@
 }
 
 .card-title {
-    font-size: 30px;
+    font-size: 20px;
     color: #b0b0b0;
     margin-left: 0;
 }
@@ -145,7 +151,21 @@
     border: solid 1px #b0b0b0;
     color: #b0b0b0;
     border-radius: 8px;
-    padding: 10px;
+    padding: 15px 20px;
+    font-size: 20px;
+    transition: background 0.3s , box-shadow 0.3s;
+    outline: none;
+}
+
+.card-input:hover {
+    border: #f79709;
+    
+    
+}
+
+.card-input:focus {
+    border: #f79709;
+    box-shadow: 0 0 10px rgba(247, 152, 9, 0.233)
 }
 
 .payment-button {
@@ -163,4 +183,6 @@
     font-weight: 700;
     font-size: 30px;
     margin-top: 20px;
+    padding-top: 8px;
+    border-top: 1px solid #f79709;
 }

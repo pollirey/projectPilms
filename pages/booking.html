@@ -13,20 +13,20 @@
         <div class="container">
             <div class="booking-form">
                 <div class="booking-header">
-                    <h2 class="film-title" id="booking-film-name">Название
+                    <h2 class="film-title" id="bookingFilmName">Название
                         фильма</h2>
                     <div class="booking-info">
                         <div class="info-item">
                             <span class="info-lable">Дата: </span>
-                            <span class="info-value" id="booking-date"></span>
+                            <span class="info-value" id="bookingDate"></span>
                         </div>
                         <div class="info-item">
                             <span class="info-lable">Время: </span>
-                            <span class="info-value" id="booking-time"></span>
+                            <span class="info-value" id="bookingTime"></span>
                         </div>
                         <div class="info-item">
                             <span class="info-lable">Зал: </span>
-                            <span class="info-value" id="booking-hall"></span>
+                            <span class="info-value" id="bookingHall"></span>
                         </div>
                     </div>
                 </div>
@@ -34,25 +34,25 @@
                     <h3 class="seats-title">Выбранные места</h3>
                     <div class="booking-list">
                         <div class="booking-item">
-                            <p class="booking-standart">Стандартные места: <span id="booking-standart"></span> 0</p>
+                            <p class="booking-standart">Стандартные места: <span id="bookingStandart"></span> 0</p>
                         </div>
                         <div class="booking-item">
-                            <p class="booking-vip">VIP места: <span id="booking-vip"></span> 0</p>
+                            <p class="booking-vip">VIP места: <span id="bookingVip"></span> 0</p>
                         </div>
                     </div>
                     <div class="booking-count">
                         <div class="booking-total">
                             <div class="booking-item">
-                                <p class="booking-standart">Стандартные места: <span id="booking-standart"></span> руб.</p>
+                                <p class="booking-standart">Стандартные места: <span id="bookingStandartPrice "></span> руб.</p>
                             </div>
                             <div class="booking-item">
-                                <p class="booking-vip">Вип билет: <span id="booking-vip"></span> руб.</p>
+                                <p class="booking-vip">Вип билет: <span id="bookingVipPrice"></span> руб.</p>
                             </div>
                             
                         </div>
                         <div class="bookinf-sum">
                             <div class="booking-price">
-                                <h3 class="price-title">Итого к оплате:<span> руб.</span></h3>
+                                <h3 class="price-title">Итого к оплате:<span id="totalPrice"> руб.</span></h3>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                         <div class="form-group">
                             <label class="card-title" for="card-number">Номер карты</label>
                             <input class="card-input" type="text"
-                                id="card-number" name="card_number" required
+                                id="cardNumber" name="cardNumber" required
                                 placeholder="0000 0000 0000 0000"
                                 maxlength="16">
                         </div>
@@ -84,7 +84,7 @@
                         </div>
                         <div class="form-group">
                             <label class="card-title" for="cvc">Имя владельца</label>
-                            <input class="card-input" type="text" required
+                            <input class="card-input" type="text" id="cardName" required
                                 placeholder="IVAN IVANOV">
                         </div>
                         <button class="payment-button"
