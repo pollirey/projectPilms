@@ -1,41 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бронирование</title>
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/booking.css">
-    <script src="../js/booking.js" defer></script>
-</head>
-<body>
-    <div class="container">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Бронирование</title>
+        <link rel="stylesheet" href="../css/global.css">
+        <link rel="stylesheet" href="../css/booking.css">
+        <script src="../js/booking.js" defer></script>
+    </head>
+    <body>
         <h1 class="page-title">Оформление бронирования</h1>
-        <div class="booking-form">
-            <div class="booking-header">
-                <h2 class="film-title" id="booking-film-name">Название фильма</h2>
-                <div class="booking-info">
-                    <div class="info-item">
-                        <span class="info-lable">Дата: </span>
-                        <span class="info-value" id="booking-date"></span>
+        <div class="container">
+            <div class="booking-form">
+                <div class="booking-header">
+                    <h2 class="film-title" id="booking-film-name">Название
+                        фильма</h2>
+                    <div class="booking-info">
+                        <div class="info-item">
+                            <span class="info-lable">Дата: </span>
+                            <span class="info-value" id="booking-date"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-lable">Время: </span>
+                            <span class="info-value" id="booking-time"></span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-lable">Зал: </span>
+                            <span class="info-value" id="booking-hall"></span>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <span class="info-lable">Время: </span>
-                        <span class="info-value" id="booking-time"></span>
+                </div>
+                <div class="seats-summary">
+                    <h3 class="seats-title">Выбранные места</h3>
+                    <div class="booking-list">
+                        <div class="booking-item">
+                            <p class="booking-standart">Стандартные места: <span id="booking-standart"></span> 0</p>
+                        </div>
+                        <div class="booking-item">
+                            <p class="booking-vip">VIP места: <span id="booking-vip"></span> 0</p>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <span class="info-lable">Зал: </span>
-                        <span class="info-value" id="booking-hall"></span>
+                    <div class="booking-count">
+                        <div class="booking-total">
+                            <div class="booking-item">
+                                <p class="booking-standart">Стандартные места: <span id="booking-standart"></span> руб.</p>
+                            </div>
+                            <div class="booking-item">
+                                <p class="booking-vip">Вип билет: <span id="booking-vip"></span> руб.</p>
+                            </div>
+                            
+                        </div>
+                        <div class="bookinf-sum">
+                            <div class="booking-price">
+                                <h3 class="price-title">Итого к оплате:<span> руб.</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="booking-payment">
+                    <h3 class="payment-title">Данные для оплаты</h3>
+                    <form method="POST" action class="payment-form">
+                        <div class="form-group">
+                            <label class="card-title" for="card-number">Номер карты</label>
+                            <input class="card-input" type="text"
+                                id="card-number" name="card_number" required
+                                placeholder="0000 0000 0000 0000"
+                                maxlength="16">
+                        </div>
+                        <div class="card-group">
+                            <div class="form-group">
+                                <label class="card-title" for="expiry">Срок действия</label>
+                                <input class="card-input" type="text"
+                                    id="expiry" name="expiry"
+                                    placeholder="MM/ГГ" maxlength="5">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="card-title" for="cvc">CVC/CVV</label>
+                                <input class="card-input" type="text" id="cvc"
+                                    name="cvc" maxlength="3" required
+                                    placeholder="123">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="card-title" for="cvc">Имя владельца</label>
+                            <input class="card-input" type="text" required
+                                placeholder="IVAN IVANOV">
+                        </div>
+                        <button class="payment-button"
+                            type="submit">Оплатить</button>
                     </div>
                 </div>
             </div>
-            <div class="seats-summary">
-                <h3>Выбранные места</h3>
-                <div class="seats-list" id="seats-list"> 
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+        </body>
+    </html>
