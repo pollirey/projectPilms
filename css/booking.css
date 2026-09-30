@@ -60,7 +60,29 @@
     padding: 30px;
 }
 
-.seats-list {}
+.seats-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.seat-badge {
+    padding: 5px 12px;
+    font-size: 14px;
+    border-radius: 20px;
+    background-color: #404040;
+}
+
+.seat-badge.vip {
+    background-color: #e1ab49;
+    border: 2px solid #da8e01;
+}
+
+.seat-badge.standart {
+    background-color: #338a2bb3;
+    border: 2px solid #173c13b3;
+}
 
 .seats-title {
     color: #f79709;
@@ -153,18 +175,18 @@
     border-radius: 8px;
     padding: 15px 20px;
     font-size: 20px;
-    transition: background 0.3s , box-shadow 0.3s;
+    transition: background-color 0.3s , box-shadow 0.3s;
     outline: none;
 }
 
 .card-input:hover {
-    border: #f79709;
+    border: 1px solid #f79709;
     
     
 }
 
 .card-input:focus {
-    border: #f79709;
+    border: 1px solid #f79709;
     box-shadow: 0 0 10px rgba(247, 152, 9, 0.233)
 }
 
@@ -176,6 +198,7 @@
     background-color: #f79709;
     border: none;
     cursor: pointer;
+    font-size: 25px;
 }
 
 .price-title {

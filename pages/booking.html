@@ -32,6 +32,7 @@
                 </div>
                 <div class="seats-summary">
                     <h3 class="seats-title">Выбранные места</h3>
+                    <div class="seats-list" id="seatsList"></div>
                     <div class="booking-list">
                         <div class="booking-item">
                             <p class="booking-standart">Стандартные места: <span id="bookingStandart"></span> </p>
@@ -59,9 +60,9 @@
                 </div>
                 <div class="booking-payment">
                     <h3 class="payment-title">Данные для оплаты</h3>
-                    <form method="POST" action class="payment-form">
+                    <form method="POST" action class="payment-form" id="paymentForm">
                         <div class="form-group">
-                            <label class="card-title" for="card-number">Номер карты</label>
+                            <label class="card-title" for="cardNumber">Номер карты</label>
                             <input class="card-input" type="text"
                                 id="cardNumber" name="cardNumber" required
                                 placeholder="0000 0000 0000 0000"
@@ -83,7 +84,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="card-title" for="cvc">Имя владельца</label>
+                            <label class="card-title" for="cardName">Имя владельца</label>
                             <input class="card-input" type="text" id="cardName" required
                                 placeholder="IVAN IVANOV">
                         </div>
