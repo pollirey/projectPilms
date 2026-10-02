@@ -19,6 +19,8 @@ const cvcInput = document.getElementById("cvc");
 const cardNameInput = document.getElementById("cardName");
 const seatsListEl = document.getElementById("seatsList");
 const paymentFormEl = document.getElementById("paymentForm");
+const btnHomeEl = document.getElementById("btnHome")
+const successModalEl = document.getElementById("successModal");
 console.log(bookingData);
 bookingFilmNameEl.textContent = bookingData.filmName;
 bookingDateEl.textContent = bookingData.date;
@@ -89,6 +91,36 @@ function validateForm() {
     if (!cardExpiry.match(/^\d{2}\/\d{2}$/)) {
         alert("Введите срок действия карты в формате MM/ГГ");
     }
+
+    if ( cardCvc.length !== 3) {
+        alert("Введите корректный CVC");
+        return false;
+    } 
+    if (cardName.length < 3) {
+     alert("Введите имя владельца карты");
+     return false;
+    }
+    return true;
 }
+
+
+paymentFormEl.addEventListener("submit" , function(e) {
+    e.preventDefault();
+    if (!validateForm()) {
+        return;
+    } 
+    successModalEl.classList.add("active");
+})
+
+btnHomeEl.addEventListener("click" , function() {
+    window.location.href = "../index.html";
+} )
+
+successModalEl.addEventListener("click" , function(e) {
+    if( e.target === successModalEl) {
+        window.location.href = "../index.html";
+    }
+})
+
 
 
